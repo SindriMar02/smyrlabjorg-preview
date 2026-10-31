@@ -1225,5 +1225,10 @@ const boot = async () => {
   if (location.hash && location.hash !== '#skip-preloader') { const t = $(location.hash); if (t) { const to = docTop(t); window.scrollTo(0, to); if (scroller.lenis) scroller.lenis.scrollTo(to, { immediate: true }); scroller.y = scroller.target = to; } }
   if (preloader.skip) { preloader.el.classList.add('is-removed'); startPage(); }
   requestAnimationFrame(loop);
+  /* the scroll geometry (map camera, pins, pinned layers) is measured once at boot; images, the film and lazy sheets settle after it.
+     Rebuild when the page has loaded and again once it has been still for a moment, so a reload or a back-navigation to the middle of the page lands on true positions. */
+  const rebuild = () => { parallax.build(); measureAll(); };
+  if (document.readyState === 'complete') setTimeout(rebuild, 400); else window.addEventListener('load', () => setTimeout(rebuild, 400), { once: true });
+  setTimeout(rebuild, 2000);
 };
 boot();
