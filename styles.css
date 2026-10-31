@@ -1767,3 +1767,5 @@ html.js .intro__crest{animation:smy-rise 1.6s var(--ease-title) 1.2s both}
   .l-luxury__pair.row > figure.col{height:clamp(220px,34vh,320px)}
 }
 .l-luxury__pair.row > figure.col,.l-luxury__pair.row > figure.l-luxury__pair-small{aspect-ratio:auto!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;justify-self:stretch}
+/* map intro: the title sits above the hotel marker and its name, never on them */
+@media (min-width:768px){.l-location__title{transform:translateY(-10svh)}}
