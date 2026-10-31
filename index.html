@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hótel Smyrlabjörg, a family farm hotel in Suðursveit since 1990</title>
+<meta name="description" content="A family-run hotel on a farm in Suðursveit, on Route 1, 34 km east of Jökulsárlón and 32 km from Höfn by road. Prototype page, not the hotel’s live site.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#111D28">
+<link rel="icon" href="assets/img/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+<link rel="preload" href="assets/fonts/Erode-Light.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/FinlandicaText-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/img/hero-dusk@1440.webp" as="image" type="image/webp" media="(min-width: 768px)">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Hotel","name":"Hótel Smyrlabjörg","description":"A family-run hotel on a farm in Suðursveit, on Route 1, 34 km east of Jökulsárlón and 32 km from Höfn by road.","telephone":"+354 478 1074","email":"smyrlabjorg@smyrlabjorg.is","address":{"@type":"PostalAddress","streetAddress":"Smyrlabjörg","addressLocality":"Suðursveit, Höfn í Hornafirði","postalCode":"781","addressCountry":"IS"}}</script>
+<link rel="stylesheet" href="assets/vendor/sndr-booking.css">
+<link rel="stylesheet" href="styles.css">
+<script type="importmap">{"imports":{"three":"./assets/vendor/three.module.min.js"}}</script>
+<script>
+document.documentElement.classList.replace('no-js','js');
+try{ if(sessionStorage.getItem('smyrlabjorg-preloaded')) document.documentElement.classList.add('is-entering'); }catch(e){}
+</script>
+<script>/* focus-guard: a focus ring only for people using a keyboard.
+
+   The bug it ends: a menu, drawer or dialog opens and its FIRST link (or the dialog's close button)
+   is outlined, as if it were selected. Cause: opening code calls first.focus(), or <dialog>.showModal()
+   focuses the first control by itself. When nothing was focused before, the browser decides the ring is
+   wanted. Safari never focuses a button on click and a touch tap never does either, so on iPhone,
+   iPad and Safari the very first tap paints the ring. Chrome with a mouse hides it, which is why it
+   passes the desktop check and then reappears on Sindri's phone.
+
+   How: remember the last input kind on <html data-input="pointer|key"> and let focus-guard.css drop the
+   ring while the last input was a pointer. Keyboard users keep every ring. Load before everything else
+   (inline in <head>, ~400 bytes), no dependencies. Doc: _tools/focus-guard/README.md */
+(function () {
+  var root = document.documentElement;
+  function set(v) { if (root.getAttribute('data-input') !== v) root.setAttribute('data-input', v); }
+  addEventListener('pointerdown', function () { set('pointer'); }, true);
+  addEventListener('keydown', function (e) {
+    if (e.key === 'Shift' || e.key === 'Control' || e.key === 'Alt' || e.key === 'Meta') return;
+    set('key');
+  }, true);
+})();
+</script>
+</head>
+<body class="ui-dark has-lockup-hero">
+<a class="skip" href="#about">Skip to content</a>
+
+<!-- preloader -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <img class="preloader__mark" src="assets/img/logo.png" alt="" width="86" height="55">
+    <span class="preloader__word" translate="no">SMYRLABJÖRG</span>
+    <div class="preloader__bar"><span id="preloader-fill"></span></div>
+    <div class="preloader__counter"><b id="preloader-counter">0</b><i>%</i></div>
+  </div>
+</div>
+
+<div class="page-overlay" id="page-overlay"></div>
+
+<!-- header -->
+<header class="header ui-dark ui-gradient header--top" id="header">
+  <div class="header__row">
+    <div class="header__left">
+      <button class="btn btn--link header__menu js-menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu">
+        <span class="header__burger" aria-hidden="true"><i></i><i></i></span>
+        <span class="header__menu-words"><span class="header__menu-word header__menu-word--open">Menu</span><span class="header__menu-word header__menu-word--close">Close</span></span>
+      </button>
+    </div>
+    <a class="header__logo" href="#top" aria-label="Hótel Smyrlabjörg, back to top">
+      <span class="header__logo-text">
+        <span class="header__logo-name" translate="no">SMYRLABJÖRG</span>
+        <span class="header__logo-sub">Hótel · Suðursveit</span>
+      </span>
+      <img class="header__logo-mark" src="assets/img/logo.png" alt="" width="40" height="25">
+    </a>
+    <div class="header__right">
+      <a class="btn btn--underline header__map" href="tel:+3544781074"><span class="btn__underline">478 1074</span></a>
+      <a class="btn btn--underline header__book" href="#stay" data-book><span class="btn__underline">Book a stay</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- menu modal -->
+<div class="modal modal--menu is-hidden" id="menu" aria-hidden="true">
+  <div class="modal__bg">
+    <img class="modal__img" src="assets/img/hotel-green@1440.webp" alt="" loading="lazy">
+  </div>
+  <div class="modal__scroller js-menu-scroller" data-lenis-prevent>
+    <ol class="menu__list js-menu-list">
+      <li><a class="menu__link js-menu-link" href="#about"><span class="menu__label text-small">Suðursveit</span><span class="menu__title h1">The farm</span></a></li>
+      <li><a class="menu__link js-menu-link" href="#rooms"><span class="menu__label text-small">Four kinds</span><span class="menu__title h1">The rooms</span></a></li>
+      <li><a class="menu__link js-menu-link" href="#restaurant"><span class="menu__label text-small">11:30 to 20:30</span><span class="menu__title h1">The restaurant</span></a></li>
+      <li><a class="menu__link js-menu-link" href="#place"><span class="menu__label text-small">By road</span><span class="menu__title h1">The map</span></a></li>
+      <li><a class="menu__link js-menu-link" href="#stay"><span class="menu__label text-small">Check dates</span><span class="menu__title h1">Stay</span></a></li>
+    </ol>
+  </div>
+</div>
+
+<div class="c-scrollbar" id="scrollbar" aria-hidden="true"><span class="c-scrollbar__thumb"></span></div>
+
+<main class="page-content" id="page">
+
+<!-- 0 HERO -->
+<section class="section section--top section--full-height ui-dark ui-background-alt" id="top" data-themed="ui-dark ui-gradient ui-intro" data-reveal-root>
+  <div class="sticky sticky--full-height sticky--under-next" data-parallax-pattern="sectionOutTiny">
+    <div class="sticky__layer sticky__layer--sticky intro">
+      <div class="intro__media" data-reveal="zoom-in block">
+        <img class="intro__img" src="assets/img/hero-dusk@1440.webp" srcset="assets/img/hero-dusk@720.webp 720w, assets/img/hero-dusk@1080.webp 1080w, assets/img/hero-dusk@1440.webp 1440w, assets/img/hero-dusk@1920.webp 1920w, assets/img/hero-dusk@2048.webp 2048w" sizes="(max-width: 767px) 300vw, 120vw" alt="The hotel at blue hour, a long row of red roofs and lit windows under a deep blue sky with the last pink light behind the mountain" width="1440" height="960">
+      </div>
+      <h1 class="intro__title intro__title--mark" data-reveal-group data-reveal-delay="500">
+        <span class="visually-hidden" translate="no">Hótel Smyrlabjörg</span>
+        <span class="intro__lockup" data-reveal="fade-in" aria-hidden="true">
+          <img class="intro__crest" src="assets/img/logo.png" alt="" width="150" height="96">
+          <span class="intro__word" translate="no">SMYRLABJÖRG</span>
+          <span class="intro__hotel" translate="no">HÓTEL</span>
+        </span>
+      </h1>
+      <div class="intro__arrow" data-reveal="slide-in-bottom block" data-reveal-delay="1000">
+        <a class="btn btn--gradient btn--arrow-down" href="#about" aria-label="Scroll to the farm"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="g-ring-1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#611610"/><stop offset="1" stop-color="#B8503F"/></linearGradient></defs><circle class="btn__ring" cx="20" cy="20" r="19.35" fill="none" stroke="url(#g-ring-1)" stroke-width="1.3"/></svg><i class="btn__arrow"></i></a>
+      </div>
+      <a class="button-3d" href="#rooms" data-reveal="fade-in block" data-reveal-delay="1000">
+        <span class="button-3d__media"><img data-img="lux-bed" data-w="720 1080 1440 1920" sizes="(max-width: 767px) 92vw, 240px" alt="" loading="lazy" width="1440" height="NaN"></span>
+        <span class="button-3d__text">
+          <span class="button-3d__big">Rooms</span>
+          <span class="text-small">Four kinds to choose from</span>
+        </span>
+        <span class="btn btn--square btn--outline-plus" aria-hidden="true"><i></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 1 ABOUT: the farm -->
+<section class="section ui-light l-luxury" id="about" data-themed="ui-light" data-reveal-root>
+  <div class="l-luxury__head" data-reveal-group data-reveal-delay="250" data-parallax-pattern="landingLuxuryTitle" data-parallax-measure=".section">
+    <p class="text-small text-center l-luxury__label" data-reveal="text">Suðursveit,<br>on Route 1</p>
+    <h2 class="h2 text-center" data-reveal="title">A FAMILY HOTEL<br>ON A WORKING FARM</h2>
+  </div>
+
+  <div class="sticky sticky--under-next l-luxury__stage">
+    <div class="sticky__layer sticky__layer--sticky l-luxury__pin">
+      <div class="l-luxury__row js-luxury-wrapper">
+        <figure class="l-luxury__side l-luxury__side--left appear" data-parallax-pattern="landingLuxuryMoveSideDesktop landingLuxuryScaleSideLeftDesktop" data-parallax-measure=".section">
+          <img data-img="horses" data-w="720 1080 1440 1920 2400 3000" sizes="(max-width: 767px) 501vw, 145vw" alt="Icelandic horses grazing in the field by the hotel" width="1440" height="NaN">
+        </figure>
+        <figure class="l-luxury__center appear" data-parallax-pattern="landingLuxuryTitle landingLuxuryScaleCenterDesktop" data-parallax-measure=".section">
+          <img data-img="lounge" data-w="720 1080 1440 1920 2400 3000" sizes="(max-width: 767px) 385vw, 125vw" alt="The lounge, leather chesterfields on a red carpet" width="1440" height="NaN">
+        </figure>
+        <figure class="l-luxury__side l-luxury__side--right appear" data-parallax-pattern="landingLuxuryMoveSideDesktop landingLuxuryScaleSideRightDesktop" data-parallax-measure=".section">
+          <img data-img="ram-head" data-w="720 1080 1440 1920 2400 3000" sizes="(max-width: 767px) 74vw, 27vw" alt="A carved ram head on the wooden wall" width="1440" height="NaN">
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="l-luxury__flow">
+  <div class="l-luxury-title" data-reveal-group>
+    <p class="h1 l-luxury-title__text" data-reveal="title">THE FAMILY HAS RUN THE HOTEL SINCE 1990. IT STANDS RIGHT BY ROUTE 1, 32 KM FROM HÖFN AND 34 KM FROM JÖKULSÁRLÓN, ON A FARM WITH HORSES AND SHEEP</p>
+    <p class="text-subtitle l-luxury-title__bottom" data-reveal="subtitle">Smyrlabjörg</p>
+  </div>
+  <div class="row l-luxury__pair">
+    <figure class="col col--md-6 col--md-offset-3 parallax-image-move appear" data-parallax-pattern="imageMove">
+      <img data-img="breakfast" data-w="720 1080 1440 1920 2400 3000" sizes="(max-width: 767px) 141vw, 94vw" alt="A plate of bacon, eggs and rye bread with orange juice and coffee" width="1440" height="NaN">
+    </figure>
+    <figure class="col col--md-3 parallax-image-move appear l-luxury__pair-small" data-parallax-pattern="imageMove">
+      <img data-img="cereal" data-w="720 1080 1440 1920 2400 3000" sizes="(max-width: 767px) 145vw, 49vw" alt="Glass jars of cereal and nuts on the breakfast counter" width="1440" height="NaN">
+    </figure>
+  </div>
+  </div>
+</section>
+
+<!-- 2 ROOMS: the Holt ring -->
+<section class="section ui-dark ui-background-alt l-three-worlds" id="rooms" data-hold data-themed="ui-dark" data-reveal-root>
+  <div class="l-three-worlds__bg appear" data-parallax-pattern="landingThreeWorldsBackground" data-parallax-measure=".section">
+    <img data-img="corridor" data-w="720 1080 1440 1920 2400 3000" sizes="(max-width: 767px) 455vw, 132vw" alt="" width="1440" height="NaN">
+  </div>
+  <div class="row l-three-worlds__intro">
+    <p class="col col--md-4 col--md-offset-4 text-center" data-reveal="text">Four kinds of room, every one with a private bathroom. Rates are examples while this is a prototype.</p>
+  </div>
+
+  <div class="sticky sticky--full-height l-three-worlds__stage" id="worlds-stage">
+    <div class="sticky__layer sticky__layer--sticky l-three-worlds-webgl" data-parallax-pattern="landingThreeWorldsWebGl" data-parallax-measure=".sticky">
+      <canvas class="l-three-worlds-webgl__canvas" id="worlds-canvas"></canvas>
+    </div>
+    <div class="sticky__layer sticky__layer--sticky l-three-worlds__ui">
+      <h2 class="l-three-worlds__title" data-reveal-group data-parallax-pattern="landingThreeWorldsTitle" data-parallax-measure=".sticky">
+        <span class="text-subtitle" data-reveal="subtitle">Four kinds of</span>
+        <span class="h0" data-reveal="title">ROOM</span>
+      </h2>
+      <div class="l-three-worlds__bottom">
+        <div class="l-three-worlds__names" id="worlds-names">
+          <span class="h1 l-three-worlds__name is-active" data-href="#stay" data-room="lux" data-price="Example rate ISK 34,000 a night, two guests" data-img="lux-attic" data-w="720 1080 1440 1920">LUXURY DOUBLE</span>
+          <span class="h1 l-three-worlds__name" data-href="#stay" data-room="twin" data-price="Example rate ISK 28,500 a night, two guests" data-img="twin-beds" data-w="720 1080 1440 1920">TWIN</span>
+          <span class="h1 l-three-worlds__name" data-href="#stay" data-room="triple" data-price="Example rate ISK 36,500 a night, three guests" data-img="triple-bed" data-w="720 1080 1440 1920">TRIPLE</span>
+          <span class="h1 l-three-worlds__name" data-href="#stay" data-room="family" data-price="Example rate ISK 42,000 a night, up to five guests" data-img="quad-attic" data-w="720 1080 1440 1920">FAMILY</span>
+          <p class="l-three-worlds__price text-small" id="worlds-price"><span class="l-three-worlds__price-line is-active">Example rate ISK 34,000 a night, two guests</span></p>
+          <a class="l-three-worlds__open text-small" id="worlds-link" href="#stay" data-room="lux">Check dates for this room</a>
+        </div>
+        <div class="l-three-worlds__explore">
+          <span class="progress-ring" id="worlds-ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="59.4" fill="none" stroke="rgba(242,239,220,.15)" stroke-width="1"/><circle class="progress-ring__bar" cx="60" cy="60" r="59.4" fill="none" stroke="#B45759" stroke-width="1" stroke-dasharray="373.25" stroke-dashoffset="373.25"/></svg><span class="progress-ring__count text-small"><b id="worlds-counter">1</b> / 4</span></span>
+          <span class="h3 l-three-worlds__brand" translate="no">SMYRLABJÖRG</span>
+        </div>
+      </div>
+      <p class="l-three-worlds__hint text-small">Drag to browse<span>Click a room to check its dates</span></p>
+      <!-- keyboard route to the same four pages the ring opens on click -->
+      <ul class="l-three-worlds__links">
+        <li><a class="l-three-worlds__link" href="#stay" data-room="lux">Luxury Double room</a></li>
+        <li><a class="l-three-worlds__link" href="#stay" data-room="twin">Twin room</a></li>
+        <li><a class="l-three-worlds__link" href="#stay" data-room="triple">Triple room</a></li>
+        <li><a class="l-three-worlds__link" href="#stay" data-room="family">Family room</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- touch gets a plain, fast picker; the ring above is desktop-only. It carries its
+       own heading, because hiding the ring also hides the ring's title layer. -->
+  <h2 class="l-rooms-mobile__head" data-reveal-group>
+    <span class="text-subtitle" data-reveal="subtitle">Four kinds of</span>
+    <span class="h0" data-reveal="title">ROOM</span>
+  </h2>
+  <ul class="l-rooms-mobile js-rooms-mobile" data-lenis-prevent>
+    <li><a href="#stay" data-room="lux"><span class="l-rooms-mobile__media appear"><img data-img="lux-attic" data-w="720 1080 1440 1920" sizes="(max-width: 767px) 89vw, 78vw" alt="" width="1440" height="NaN"></span><span class="h3">LUXURY DOUBLE</span><span class="text-small">Second floor, sea view. A bed of 2 × 2 m, about 30 m².</span></a></li>
+    <li><a href="#stay" data-room="twin"><span class="l-rooms-mobile__media appear"><img data-img="twin-beds" data-w="720 1080 1440 1920" sizes="(max-width: 767px) 89vw, 78vw" alt="" width="1440" height="NaN"></span><span class="h3">TWIN</span><span class="text-small">Private bathroom and easy access.</span></a></li>
+    <li><a href="#stay" data-room="triple"><span class="l-rooms-mobile__media appear"><img data-img="triple-bed" data-w="720 1080 1440 1920" sizes="(max-width: 767px) 89vw, 78vw" alt="" width="1440" height="NaN"></span><span class="h3">TRIPLE</span><span class="text-small">Spacious, with room to add a cot.</span></a></li>
+    <li><a href="#stay" data-room="family"><span class="l-rooms-mobile__media appear"><img data-img="quad-attic" data-w="720 1080 1440 1920" sizes="(max-width: 767px) 89vw, 78vw" alt="" width="1440" height="NaN"></span><span class="h3">FAMILY</span><span class="text-small">Four beds, and an extra bed or a cot on request.</span></a></li>
+  </ul>
+  <div class="room-cursor" id="room-cursor" aria-hidden="true">
+    <svg viewBox="0 0 96 96"><circle cx="48" cy="48" r="47" fill="rgba(18,26,29,.35)" stroke="rgba(242,239,220,.6)" stroke-width="1"/></svg>
+    <span class="room-cursor__inner"><b>View</b><span class="room-cursor__room">Single</span></span>
+  </div>
+</section>
+
+<!-- 3 RESTAURANT: the wall -->
+<section class="section ui-dark l-selection" id="restaurant" data-hold data-themed="ui-dark" data-reveal-root
+         data-gravity-well='[{"viewport":0,"element":0}]'>
+  <div class="l-hang" id="hang-stage">
+    <div class="sticky__layer sticky__layer--sticky l-hang__pin">
+      <div class="l-hang__track js-hang-track">
+        <figure class="l-hang__item l-hang__item--tall appear"><img data-img="dining" data-w="720 1080 1440 1920 2400 3000" sizes="(max-width: 767px) 120vw, 50vw" alt="The dining room, tables laid with red cloths" width="1440" height="NaN"></figure>
+        <figure class="l-hang__item  appear"><img data-img="bar" data-w="720 1080 1440 1920 2400 3000" sizes="(max-width: 767px) 120vw, 45vw" alt="The bar, a wooden counter and a wall of bottles" width="1440" height="NaN"></figure>
+        <figure class="l-hang__item l-hang__item--low appear"><img data-img="breakfast" data-w="720 1080 1440 1920 2400 3000" sizes="(max-width: 767px) 120vw, 26vw" alt="A plate of bacon, eggs and rye bread with orange juice and coffee" width="1440" height="NaN"></figure>
+        <figure class="l-hang__item l-hang__item--tall appear"><img data-img="dining-sign" data-w="720 1080 1440 1920 2400 3000" sizes="(max-width: 767px) 120vw, 44vw" alt="The dining room, a line of verse over the door" width="1440" height="NaN"></figure>
+        <figure class="l-hang__item  appear"><img data-img="buffet" data-w="720 1080 1440 1920 2400 3000" sizes="(max-width: 767px) 120vw, 30vw" alt="The breakfast buffet, cold meats and cheeses" width="1440" height="NaN"></figure>
+        <figure class="l-hang__item l-hang__item--low appear"><img data-img="lounge-2" data-w="720 1080 1440 1920 2400 3000" sizes="(max-width: 767px) 120vw, 26vw" alt="The lounge with a painting of a waterfall on the wall" width="1440" height="NaN"></figure>
+        <figure class="l-hang__item l-hang__item--low appear"><img data-img="dining-lounge" data-w="720 1080 1440 1920 2400 3000" sizes="(max-width: 767px) 120vw, 27vw" alt="A leather sofa and the tables by the window of the restaurant" width="1440" height="NaN"></figure>
+        <figure class="l-hang__item  appear"><img data-img="lobby" data-w="720 1080 1440 1920 2400 3000" sizes="(max-width: 767px) 120vw, 26vw" alt="The lobby, an old spinning wheel by the door" width="1440" height="NaN"></figure>
+        <figure class="l-hang__item  appear"><img data-img="corridor" data-w="720 1080 1440 1920 2400 3000" sizes="(max-width: 767px) 120vw, 30vw" alt="The long red-carpeted corridor, a ram head on each door" width="1440" height="NaN"></figure>
+        </div>
+      <div class="l-hang__rail" aria-hidden="true"><span class="l-hang__rail-fill js-hang-fill"></span></div>
+      <p class="l-hang__count text-small"><b class="js-hang-index">01</b> / <span class="js-hang-total">9</span></p>
+      <p class="l-hang__hint text-small">Drag to turn the pages</p>
+    </div>
+    <div class="sticky__layer sticky__layer--sticky l-selection__title" data-parallax-pattern="landingHandpickedTitle" data-parallax-measure=".l-hang">
+      <div data-reveal-group data-reveal-threshold="1">
+        <p class="text-subtitle text-center" data-reveal="subtitle">The restaurant</p>
+        <p class="text-small text-center" data-reveal="text">and the breakfast table</p>
+      </div>
+    </div>
+  </div>
+  <div class="l-selection__flow">
+    <div class="l-dine">
+      <div class="l-dine__copy" data-reveal-group>
+        <p class="text-subtitle" data-reveal="subtitle">Open most days</p>
+        <h3 class="h1 l-dine__lead" data-reveal="title">MEALS FROM 11:30 TO 20:30</h3>
+        <dl class="l-dine__list">
+          <div data-reveal="fade-in"><dt class="text-small">Restaurant</dt><dd>Meals are served most days, from 11:30 to 20:30.</dd></div>
+          <div data-reveal="fade-in"><dt class="text-small">Bar</dt><dd>Wines the family has chosen, and a range of beers.</dd></div>
+          <div data-reveal="fade-in"><dt class="text-small">Breakfast</dt><dd>The breakfast buffet has long been known.</dd></div>
+          <div data-reveal="fade-in"><dt class="text-small">Ask</dt><dd>Reception can tell you about the farm and the valley.</dd></div>
+        </dl>
+      </div>
+      <figure class="l-dine__fig appear"><img data-img="buffet" data-w="720 1080 1440 1920 2400 3000" sizes="(max-width: 767px) 100vw, 52vw" alt="The breakfast buffet, cold meats and cheeses" width="1440" height="NaN"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 4a THE FILM: the hotel's own footage, recut -->
+<section class="section ui-dark ui-background-alt l-film" id="film" data-themed="ui-dark" data-reveal-root>
+  <div class="l-film__frame appear">
+    <video class="l-place__video" muted loop playsinline preload="metadata" poster="assets/img/film-poster.webp" aria-label="Film from the hotel’s own video: icebergs on the glacier lagoon, a glacier, the black beach and the hotel from the air">
+      <source src="assets/video/film.webm" type="video/webm"><source src="assets/video/film.mp4" type="video/mp4">
+    </video>
+    <button class="l-place__pause" type="button" aria-pressed="false" aria-label="Pause the film"><span aria-hidden="true">Pause</span></button>
+  </div>
+  <div class="l-film__caption" data-reveal-group>
+    <p class="text-subtitle" data-reveal="subtitle">Suðursveit</p>
+    <p class="text-small" data-reveal="text">From the hotel’s own film: the lagoon, the glacier, the black beach, the farm.</p>
+  </div>
+</section>
+
+<!-- 4b THE ROAD: the Holt scroll-driven map -->
+<section class="section ui-dark ui-background-alt l-location" id="place" data-hold data-themed="ui-dark" data-reveal-root
+         data-gravity-well='[{"viewport":0,"element":0},{"viewport":-490,"element":0},{"viewport":100,"element":100}]'>
+  <div class="l-location__grid">
+    <div class="sticky sticky--full-height l-location__map-layer">
+      <div class="sticky__layer sticky__layer--sticky l-location__map-pin">
+        <div class="l-location__map js-location-map" data-parallax-pattern="landingLocationMapDesktop" data-parallax-measure=".sticky">
+    <div class="l-location__map-inner js-map-inner">
+      <img class="l-location__map-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5120' height='4096'%3E%3C/svg%3E" data-src="assets/img/map-dark.webp" alt="" width="5120" height="4096" decoding="async">
+      <!-- real driving routes from the hotel, OSRM car profile over OSM (_map.mjs) -->
+      <svg class="l-location__routes js-routes" viewBox="0 0 125 100" preserveAspectRatio="none" aria-hidden="true">
+      <!--ROUTES-->
+      <path class="l-location__route" data-route="0" d="M 53.631 52.226 L 53.630 52.228 L 53.625 52.240 L 53.623 52.254 L 53.629 52.246 L 53.633 52.244 L 53.638 52.245 L 53.651 52.251 L 53.686 52.267 L 53.693 52.271 L 53.728 52.287 L 53.742 52.295 L 53.756 52.307 L 53.769 52.321 L 53.783 52.335 L 53.791 52.343 L 53.801 52.352 L 53.818 52.365 L 53.846 52.381 L 53.861 52.390 L 53.872 52.398 L 53.843 52.422 L 53.788 52.472 L 53.755 52.506 L 53.729 52.541 L 53.706 52.579 L 53.601 52.773 L 53.577 52.814 L 53.552 52.847 L 53.528 52.873 L 53.505 52.895 L 53.357 53.011 L 53.348 53.018 L 53.321 53.040 L 53.303 53.056 L 53.287 53.071 L 53.276 53.084 L 53.259 53.103 L 53.245 53.121 L 53.230 53.140 L 53.209 53.170 L 52.943 53.543 L 52.919 53.575 L 52.894 53.605 L 52.691 53.832 L 52.677 53.853 L 52.667 53.873 L 52.659 53.890 L 52.654 53.904 L 52.649 53.921 L 52.646 53.937 L 52.645 53.956 L 52.645 53.975 L 52.646 53.996 L 52.650 54.020 L 52.658 54.056 L 52.669 54.101 L 52.691 54.190 L 52.693 54.206 L 52.695 54.224 L 52.696 54.244 L 52.695 54.263 L 52.693 54.279 L 52.688 54.298 L 52.683 54.315 L 52.675 54.336 L 52.480 54.740 L 52.459 54.781 L 52.449 54.800 L 52.439 54.817 L 52.417 54.852 L 52.399 54.876 L 52.379 54.900 L 52.355 54.926 L 52.330 54.949 L 52.310 54.966 L 52.290 54.983 L 52.222 55.031 L 52.184 55.058 L 52.164 55.074 L 52.146 55.090 L 52.126 55.108 L 52.107 55.127 L 52.086 55.149 L 52.065 55.174 L 52.042 55.202 L 52.034 55.211 L 52.015 55.232 L 51.999 55.248 L 51.983 55.263 L 51.964 55.277 L 51.946 55.289 L 51.926 55.300 L 51.901 55.312 L 51.874 55.323 L 51.851 55.330 L 51.820 55.338 L 51.792 55.342 L 51.755 55.346 L 51.730 55.348 L 51.695 55.348 L 51.670 55.347 L 51.622 55.343 L 51.586 55.337 L 51.550 55.329 L 51.503 55.315 L 51.458 55.298 L 51.419 55.281 L 51.371 55.255 L 51.332 55.229 L 51.291 55.201 L 51.255 55.178 L 51.211 55.155 L 51.178 55.138 L 51.146 55.123 L 50.804 54.976 L 50.731 54.947 L 50.654 54.922 L 50.566 54.900 L 50.486 54.888 L 50.414 54.880 L 50.375 54.878 L 50.341 54.878 L 50.317 54.879 L 50.293 54.881 L 50.274 54.884 L 50.242 54.889 L 50.188 54.903 L 50.126 54.927 L 50.071 54.956 L 50.020 54.991 L 49.918 55.076 L 49.861 55.115 L 49.763 55.168 L 49.711 55.205 L 49.661 55.246 L 49.609 55.302 L 49.554 55.359 L 49.509 55.395 L 49.468 55.419 L 49.424 55.440 L 49.372 55.456 L 49.319 55.464 L 49.270 55.467 L 49.224 55.462 L 49.182 55.455 L 49.128 55.436 L 49.028 55.400 L 48.991 55.389 L 48.949 55.379 L 48.922 55.376 L 48.899 55.374 L 48.880 55.373 L 48.851 55.372 L 48.818 55.372 L 48.345 55.404 L 48.289 55.407 L 48.248 55.413 L 48.214 55.422 L 48.189 55.431 L 48.046 55.486 L 47.820 55.572 L 47.603 55.660 L 47.573 55.670 L 47.462 55.714 L 47.395 55.747 L 47.341 55.786 L 46.852 56.199 L 46.620 56.395 L 46.256 56.703 L 46.071 56.860 L 46.017 56.906 L 45.936 56.977 L 45.907 57.002 L 45.848 57.052 L 45.832 57.066 L 45.805 57.088 L 45.660 57.211 L 45.637 57.232 L 45.577 57.288 L 45.529 57.333 L 45.487 57.377 L 45.454 57.412 L 45.400 57.471 L 45.340 57.539 L 45.300 57.586 L 45.254 57.641 L 45.223 57.682 L 45.194 57.720 L 45.172 57.751 L 45.161 57.765 L 45.131 57.808 L 45.112 57.837 L 45.087 57.874 L 45.067 57.903 L 45.049 57.933 L 45.026 57.970 L 44.986 58.036 L 44.962 58.076 L 44.936 58.121 L 44.882 58.212 L 44.856 58.253 L 44.828 58.294 L 44.802 58.329 L 44.778 58.357 L 44.754 58.385 L 44.724 58.417 L 44.692 58.447 L 44.661 58.475 L 44.621 58.509 L 44.580 58.542 L 44.497 58.610 L 44.432 58.665 L 44.392 58.697 L 44.363 58.722 L 44.346 58.736 L 44.325 58.753 L 44.280 58.790 L 44.239 58.823 L 44.219 58.839 L 44.198 58.855 L 44.179 58.866 L 44.158 58.878 L 44.097 58.910 L 44.029 58.944 L 43.962 58.978 L 43.894 59.012 L 43.840 59.036 L 43.781 59.060 L 43.752 59.071 L 43.722 59.082 L 43.693 59.092 L 43.664 59.102 L 43.605 59.119 L 43.543 59.136 L 43.506 59.145 L 43.467 59.154 L 43.427 59.161 L 43.386 59.167 L 43.339 59.172 L 43.289 59.178 L 43.222 59.186 L 43.188 59.190 L 43.156 59.195 L 43.130 59.201 L 43.107 59.207 L 43.085 59.214 L 43.064 59.222 L 43.045 59.230 L 43.025 59.240 L 42.987 59.259 L 42.934 59.286 L 42.941 59.295 L 42.949 59.304 L 42.970 59.322 L 42.985 59.336 L 42.995 59.346 L 43.002 59.353 L 43.007 59.361 L 43.011 59.367 L 43.013 59.370 L 43.017 59.380 L 43.021 59.390 L 43.022 59.393 L 43.016 59.400 L 42.959 59.407 L 42.957 59.404 L 42.957 59.399 L 42.965 59.389" fill="none"/>
+      <path class="l-location__route" data-route="1" d="M 53.631 52.226 L 53.630 52.228 L 53.625 52.240 L 53.623 52.254 L 53.629 52.246 L 53.633 52.244 L 53.638 52.245 L 53.651 52.251 L 53.686 52.267 L 53.693 52.271 L 53.728 52.287 L 53.742 52.295 L 53.756 52.307 L 53.769 52.321 L 53.783 52.335 L 53.791 52.343 L 53.801 52.352 L 53.818 52.365 L 53.846 52.381 L 53.861 52.390 L 53.872 52.398 L 53.843 52.422 L 53.788 52.472 L 53.755 52.506 L 53.729 52.541 L 53.706 52.579 L 53.601 52.773 L 53.577 52.814 L 53.552 52.847 L 53.528 52.873 L 53.505 52.895 L 53.357 53.011 L 53.348 53.018 L 53.321 53.040 L 53.303 53.056 L 53.287 53.071 L 53.276 53.084 L 53.259 53.103 L 53.245 53.121 L 53.230 53.140 L 53.209 53.170 L 52.943 53.543 L 52.919 53.575 L 52.894 53.605 L 52.691 53.832 L 52.677 53.853 L 52.667 53.873 L 52.659 53.890 L 52.654 53.904 L 52.649 53.921 L 52.646 53.937 L 52.645 53.956 L 52.645 53.975 L 52.646 53.996 L 52.650 54.020 L 52.658 54.056 L 52.669 54.101 L 52.691 54.190 L 52.693 54.206 L 52.695 54.224 L 52.696 54.244 L 52.695 54.263 L 52.693 54.279 L 52.688 54.298 L 52.683 54.315 L 52.675 54.336 L 52.480 54.740 L 52.459 54.781 L 52.449 54.800 L 52.439 54.817 L 52.417 54.852 L 52.399 54.876 L 52.379 54.900 L 52.355 54.926 L 52.330 54.949 L 52.310 54.966 L 52.290 54.983 L 52.222 55.031 L 52.184 55.058 L 52.164 55.074 L 52.146 55.090 L 52.126 55.108 L 52.107 55.127 L 52.086 55.149 L 52.065 55.174 L 52.042 55.202 L 52.034 55.211 L 52.015 55.232 L 51.999 55.248 L 51.983 55.263 L 51.964 55.277 L 51.946 55.289 L 51.926 55.300 L 51.901 55.312 L 51.874 55.323 L 51.851 55.330 L 51.820 55.338 L 51.792 55.342 L 51.755 55.346 L 51.730 55.348 L 51.695 55.348 L 51.670 55.347 L 51.622 55.343 L 51.586 55.337 L 51.550 55.329 L 51.503 55.315 L 51.458 55.298 L 51.419 55.281 L 51.371 55.255 L 51.332 55.229 L 51.291 55.201 L 51.255 55.178 L 51.211 55.155 L 51.178 55.138 L 51.146 55.123 L 50.804 54.976 L 50.731 54.947 L 50.654 54.922 L 50.566 54.900 L 50.486 54.888 L 50.414 54.880 L 50.375 54.878 L 50.341 54.878 L 50.317 54.879 L 50.293 54.881 L 50.274 54.884 L 50.242 54.889 L 50.188 54.903 L 50.126 54.927 L 50.071 54.956 L 50.020 54.991 L 49.918 55.076 L 49.861 55.115 L 49.763 55.168 L 49.711 55.205 L 49.661 55.246 L 49.609 55.302 L 49.554 55.359 L 49.509 55.395 L 49.468 55.419 L 49.424 55.440 L 49.372 55.456 L 49.319 55.464 L 49.270 55.467 L 49.224 55.462 L 49.182 55.455 L 49.128 55.436 L 49.028 55.400 L 48.991 55.389 L 48.949 55.379 L 48.922 55.376 L 48.899 55.374 L 48.880 55.373 L 48.851 55.372 L 48.818 55.372 L 48.345 55.404 L 48.289 55.407 L 48.248 55.413 L 48.214 55.422 L 48.189 55.431 L 48.046 55.486 L 47.820 55.572 L 47.603 55.660 L 47.573 55.670 L 47.462 55.714 L 47.395 55.747 L 47.341 55.786 L 46.852 56.199 L 46.620 56.395 L 46.256 56.703 L 46.071 56.860 L 46.017 56.906 L 45.936 56.977 L 45.907 57.002 L 45.848 57.052 L 45.832 57.066 L 45.805 57.088 L 45.660 57.211 L 45.637 57.232 L 45.577 57.288 L 45.529 57.333 L 45.487 57.377 L 45.454 57.412 L 45.400 57.471 L 45.340 57.539 L 45.300 57.586 L 45.254 57.641 L 45.223 57.682 L 45.194 57.720 L 45.172 57.751 L 45.161 57.765 L 45.131 57.808 L 45.112 57.837 L 45.087 57.874 L 45.067 57.903 L 45.049 57.933 L 45.026 57.970 L 44.986 58.036 L 44.962 58.076 L 44.936 58.121 L 44.882 58.212 L 44.856 58.253 L 44.828 58.294 L 44.802 58.329 L 44.778 58.357 L 44.754 58.385 L 44.724 58.417 L 44.692 58.447 L 44.661 58.475 L 44.621 58.509 L 44.580 58.542 L 44.497 58.610 L 44.432 58.665 L 44.392 58.697 L 44.363 58.722 L 44.346 58.736 L 44.325 58.753 L 44.280 58.790 L 44.239 58.823 L 44.219 58.839 L 44.198 58.855 L 44.179 58.866 L 44.158 58.878 L 44.097 58.910 L 44.029 58.944 L 43.962 58.978 L 43.894 59.012 L 43.840 59.036 L 43.781 59.060 L 43.752 59.071 L 43.722 59.082 L 43.693 59.092 L 43.664 59.102 L 43.605 59.119 L 43.543 59.136 L 43.506 59.145 L 43.467 59.154 L 43.427 59.161 L 43.386 59.167 L 43.339 59.172 L 43.289 59.178 L 43.222 59.186 L 43.188 59.190 L 43.156 59.195 L 43.130 59.201 L 43.107 59.207 L 43.085 59.214 L 43.064 59.222 L 43.045 59.230 L 43.025 59.240 L 42.987 59.259 L 42.934 59.286 L 42.888 59.310 L 42.830 59.339 L 42.795 59.356 L 42.752 59.375 L 42.724 59.385 L 42.684 59.397 L 42.653 59.404 L 42.644 59.406 L 42.621 59.411 L 42.597 59.412 L 42.561 59.411 L 42.536 59.407 L 42.513 59.401 L 42.479 59.387 L 42.458 59.375 L 42.418 59.345 L 42.371 59.309 L 42.329 59.283 L 42.308 59.272 L 42.275 59.258 L 42.229 59.242 L 42.170 59.230 L 42.121 59.225 L 42.084 59.225 L 42.024 59.230 L 41.871 59.248 L 41.685 59.271 L 41.638 59.278 L 41.626 59.281 L 41.614 59.283 L 41.589 59.290 L 41.568 59.299 L 41.556 59.304 L 41.542 59.311 L 41.526 59.319 L 41.506 59.332 L 41.483 59.348 L 41.474 59.356 L 41.465 59.364 L 41.448 59.380 L 41.430 59.399 L 41.411 59.424 L 41.365 59.488 L 41.122 59.816 L 41.120 59.820 L 40.962 60.032 L 40.753 60.316 L 40.729 60.348 L 40.613 60.504 L 40.573 60.558 L 40.566 60.568 L 40.550 60.591 L 40.520 60.632 L 40.431 60.755 L 40.377 60.843 L 40.320 60.949 L 40.262 61.075 L 40.218 61.199 L 40.184 61.311 L 40.159 61.424 L 40.152 61.458 L 40.107 61.691 L 40.023 62.103 L 40.014 62.149 L 39.999 62.222 L 39.994 62.253 L 39.986 62.292 L 39.972 62.359 L 39.739 63.558 L 39.724 63.614 L 39.717 63.627 L 39.699 63.664 L 39.671 63.708 L 39.634 63.756 L 38.895 64.460 L 38.796 64.569 L 38.752 64.624 L 38.731 64.650 L 38.264 65.306 L 38.015 65.654 L 37.970 65.712 L 37.893 65.802 L 37.817 65.878 L 37.727 65.955 L 37.626 66.029 L 37.500 66.104 L 37.458 66.124 L 37.444 66.129 L 37.380 66.158 L 37.342 66.173 L 37.333 66.154 L 37.329 66.150 L 37.325 66.146 L 37.321 66.143 L 37.317 66.141 L 37.312 66.140 L 37.308 66.139 L 37.297 66.136 L 37.289 66.134 L 37.284 66.132 L 37.280 66.130 L 37.277 66.127 L 37.275 66.124 L 37.273 66.122 L 37.270 66.115 L 37.263 66.100 L 37.260 66.094 L 37.256 66.089 L 37.251 66.083 L 37.247 66.079 L 37.223 66.060 L 37.220 66.057 L 37.215 66.053 L 37.210 66.043 L 37.209 66.040 L 37.224 66.031" fill="none"/>
+      <path class="l-location__route" data-route="2" d="M 53.631 52.226 L 53.630 52.228 L 53.625 52.240 L 53.623 52.254 L 53.629 52.246 L 53.633 52.244 L 53.638 52.245 L 53.651 52.251 L 53.686 52.267 L 53.693 52.271 L 53.728 52.287 L 53.742 52.295 L 53.756 52.307 L 53.769 52.321 L 53.783 52.335 L 53.791 52.343 L 53.801 52.352 L 53.818 52.365 L 53.846 52.381 L 53.861 52.390 L 53.872 52.398 L 54.017 52.264 L 54.076 52.205 L 54.136 52.138 L 54.531 51.680 L 54.810 51.355 L 54.829 51.330 L 54.843 51.307 L 54.854 51.284 L 54.861 51.267 L 54.868 51.248 L 54.876 51.222 L 54.882 51.196 L 54.885 51.181 L 54.887 51.167 L 54.888 51.143 L 54.887 51.100 L 54.879 50.984 L 54.880 50.870 L 54.883 50.757 L 54.885 50.729 L 54.887 50.708 L 54.891 50.688 L 54.894 50.673 L 54.895 50.670 L 54.901 50.648 L 54.908 50.628 L 54.916 50.609 L 54.924 50.591 L 54.955 50.530 L 54.982 50.476 L 54.993 50.451 L 55.002 50.426 L 55.009 50.403 L 55.013 50.384 L 55.016 50.365 L 55.024 50.305 L 55.031 50.244 L 55.044 50.140 L 55.048 50.113 L 55.053 50.090 L 55.061 50.064 L 55.070 50.041 L 55.084 50.012 L 55.095 49.995 L 55.116 49.969 L 55.183 49.890 L 55.220 49.846 L 55.234 49.831 L 55.249 49.816 L 55.279 49.791 L 55.297 49.777 L 55.303 49.774 L 55.319 49.765 L 55.336 49.758 L 55.348 49.754 L 55.365 49.748 L 55.384 49.743 L 55.860 49.634 L 56.163 49.556 L 56.950 49.335 L 57.180 49.278 L 57.715 49.145 L 58.421 48.969 L 58.504 48.949 L 60.484 48.456 L 60.557 48.436 L 60.627 48.415 L 60.695 48.392 L 60.759 48.368 L 60.799 48.352 L 60.856 48.329 L 60.905 48.307 L 60.954 48.284 L 61.024 48.249 L 61.085 48.216 L 61.143 48.183 L 61.198 48.149 L 61.201 48.148 L 61.251 48.115 L 61.303 48.081 L 61.347 48.048 L 61.373 48.025 L 61.452 47.949 L 61.533 47.870 L 61.693 47.712 L 62.144 47.270 L 62.196 47.218 L 62.239 47.180 L 62.283 47.142 L 62.313 47.118 L 62.346 47.094 L 62.381 47.068 L 62.400 47.055 L 62.419 47.042 L 62.507 46.980 L 62.532 46.966 L 62.628 46.912 L 62.775 46.842 L 62.927 46.785 L 63.097 46.737 L 63.231 46.710 L 63.342 46.693 L 63.477 46.683 L 63.620 46.681 L 63.752 46.686 L 63.861 46.690 L 63.866 46.690 L 63.998 46.693 L 64.100 46.694 L 64.195 46.690 L 64.273 46.681 L 64.373 46.665 L 64.456 46.645 L 64.542 46.620 L 64.613 46.596 L 64.698 46.560 L 64.785 46.516 L 64.903 46.445 L 65.117 46.300 L 65.206 46.248 L 65.295 46.203 L 65.336 46.182 L 65.409 46.151 L 65.465 46.129 L 65.534 46.102 L 65.643 46.067 L 65.710 46.048 L 65.772 46.032 L 65.846 46.016 L 65.923 46.002 L 65.973 45.995 L 66.025 45.988 L 66.091 45.982 L 66.157 45.978 L 66.260 45.976 L 66.539 45.976 L 66.789 45.977 L 67.074 45.981 L 67.272 45.982 L 67.445 45.981 L 67.645 45.983 L 67.740 45.989 L 67.836 45.997 L 67.909 46.007 L 68.004 46.024 L 68.123 46.051 L 68.234 46.082 L 68.332 46.115 L 68.455 46.162 L 68.566 46.216 L 68.784 46.330 L 68.920 46.393 L 69.028 46.434 L 69.192 46.488 L 69.285 46.514 L 69.357 46.531 L 69.434 46.548 L 69.557 46.571 L 69.629 46.585 L 69.722 46.608 L 69.841 46.641 L 69.936 46.670 L 70.026 46.701 L 70.134 46.746 L 70.243 46.793 L 70.320 46.830 L 70.361 46.850 L 70.460 46.905 L 70.540 46.951 L 70.675 47.025 L 70.727 47.055 L 70.836 47.104 L 70.914 47.139 L 70.971 47.161 L 71.023 47.182 L 71.075 47.200 L 71.145 47.224 L 71.193 47.239 L 71.338 47.279 L 71.425 47.298 L 71.513 47.313 L 71.555 47.319 L 71.592 47.323 L 71.627 47.325 L 71.667 47.325 L 71.699 47.326 L 71.753 47.325 L 71.808 47.321 L 71.841 47.317 L 71.879 47.310 L 71.933 47.299 L 72.004 47.279 L 72.069 47.257 L 72.076 47.257 L 72.087 47.253 L 72.094 47.251 L 72.103 47.248 L 72.107 47.251 L 72.111 47.253 L 72.114 47.272 L 72.116 47.276 L 72.116 47.282 L 72.115 47.287 L 72.113 47.296 L 72.109 47.304 L 72.104 47.313 L 72.095 47.329 L 72.015 47.463 L 72.011 47.471 L 72.002 47.489 L 71.995 47.504 L 71.983 47.539 L 71.979 47.559 L 71.977 47.574 L 71.975 47.597 L 71.974 47.623 L 71.974 47.658 L 71.975 47.701 L 71.975 47.735 L 71.974 47.761 L 71.972 47.799 L 71.970 47.841 L 71.969 47.866 L 71.969 47.891 L 71.969 47.915 L 71.971 47.939 L 71.973 47.962 L 71.976 47.985 L 71.979 48.009 L 71.993 48.104 L 71.993 48.111 L 71.996 48.151 L 71.996 48.162 L 71.996 48.218 L 71.990 48.341 L 71.990 48.353 L 71.989 48.383 L 71.989 48.405 L 71.989 48.423 L 71.986 48.445 L 71.978 48.479 L 71.968 48.519 L 71.924 48.690 L 71.895 48.799 L 71.892 48.812 L 71.879 48.859 L 71.870 48.890 L 71.858 48.920 L 71.840 48.961 L 71.819 49.008 L 71.803 49.044 L 71.801 49.048 L 71.796 49.058 L 71.790 49.068 L 71.782 49.081 L 71.770 49.097 L 71.763 49.108 L 71.754 49.120 L 71.742 49.137 L 71.736 49.146 L 71.734 49.148 L 71.710 49.185 L 71.701 49.198 L 71.693 49.209 L 71.685 49.221 L 71.677 49.233 L 71.674 49.239 L 71.671 49.245 L 71.662 49.281 L 71.662 49.291 L 71.662 49.301 L 71.663 49.316 L 71.663 49.321 L 71.665 49.349 L 71.679 49.347 L 71.690 49.344 L 71.696 49.340 L 71.700 49.334 L 71.721 49.310 L 71.724 49.307 L 71.728 49.305 L 71.733 49.304 L 71.740 49.305 L 71.745 49.311" fill="none"/>
+      <path class="l-location__route" data-route="3" d="M 53.631 52.226 L 53.630 52.228 L 53.625 52.240 L 53.623 52.254 L 53.629 52.246 L 53.633 52.244 L 53.638 52.245 L 53.651 52.251 L 53.686 52.267 L 53.693 52.271 L 53.728 52.287 L 53.742 52.295 L 53.756 52.307 L 53.769 52.321 L 53.783 52.335 L 53.791 52.343 L 53.801 52.352 L 53.818 52.365 L 53.846 52.381 L 53.861 52.390 L 53.872 52.398 L 54.017 52.264 L 54.076 52.205 L 54.136 52.138 L 54.531 51.680 L 54.810 51.355 L 54.829 51.330 L 54.843 51.307 L 54.854 51.284 L 54.861 51.267 L 54.868 51.248 L 54.876 51.222 L 54.882 51.196 L 54.885 51.181 L 54.887 51.167 L 54.888 51.143 L 54.887 51.100 L 54.879 50.984 L 54.880 50.870 L 54.883 50.757 L 54.885 50.729 L 54.887 50.708 L 54.891 50.688 L 54.894 50.673 L 54.895 50.670 L 54.901 50.648 L 54.908 50.628 L 54.916 50.609 L 54.924 50.591 L 54.955 50.530 L 54.982 50.476 L 54.993 50.451 L 55.002 50.426 L 55.009 50.403 L 55.013 50.384 L 55.016 50.365 L 55.024 50.305 L 55.031 50.244 L 55.044 50.140 L 55.048 50.113 L 55.053 50.090 L 55.061 50.064 L 55.070 50.041 L 55.084 50.012 L 55.095 49.995 L 55.116 49.969 L 55.183 49.890 L 55.220 49.846 L 55.234 49.831 L 55.249 49.816 L 55.279 49.791 L 55.297 49.777 L 55.303 49.774 L 55.319 49.765 L 55.336 49.758 L 55.348 49.754 L 55.365 49.748 L 55.384 49.743 L 55.860 49.634 L 56.163 49.556 L 56.950 49.335 L 57.180 49.278 L 57.715 49.145 L 58.421 48.969 L 58.504 48.949 L 60.484 48.456 L 60.557 48.436 L 60.627 48.415 L 60.695 48.392 L 60.759 48.368 L 60.799 48.352 L 60.856 48.329 L 60.905 48.307 L 60.954 48.284 L 61.024 48.249 L 61.085 48.216 L 61.143 48.183 L 61.198 48.149 L 61.201 48.148 L 61.251 48.115 L 61.303 48.081 L 61.347 48.048 L 61.373 48.025 L 61.452 47.949 L 61.533 47.870 L 61.693 47.712 L 62.144 47.270 L 62.196 47.218 L 62.239 47.180 L 62.283 47.142 L 62.313 47.118 L 62.346 47.094 L 62.381 47.068 L 62.400 47.055 L 62.419 47.042 L 62.407 47.021 L 62.402 47.009 L 62.400 46.997 L 62.399 46.985 L 62.399 46.977 L 62.399 46.967 L 62.402 46.956 L 62.407 46.942 L 62.416 46.933 L 62.426 46.925 L 62.436 46.918 L 62.447 46.912 L 62.461 46.903 L 62.476 46.893 L 62.492 46.882 L 62.501 46.875 L 62.508 46.867 L 62.516 46.856 L 62.583 46.762 L 62.759 46.518 L 62.793 46.480 L 62.828 46.444 L 62.886 46.394 L 62.958 46.340 L 63.056 46.271 L 63.232 46.151 L 63.483 45.990 L 63.497 45.980 L 63.587 45.924 L 64.018 45.650 L 64.186 45.544 L 64.269 45.491 L 64.384 45.417 L 64.426 45.389 L 64.445 45.372 L 64.462 45.355 L 64.479 45.337 L 64.502 45.309 L 64.523 45.278 L 64.532 45.262 L 64.545 45.238 L 64.558 45.209 L 64.630 45.043 L 64.644 45.011 L 64.662 44.969 L 64.679 44.929 L 64.717 44.846 L 64.730 44.814 L 64.738 44.790 L 64.742 44.779 L 64.745 44.767 L 64.747 44.755 L 64.749 44.743 L 64.751 44.730 L 64.752 44.718 L 64.753 44.698 L 64.752 44.682 L 64.751 44.669 L 64.750 44.657 L 64.748 44.645 L 64.745 44.633 L 64.742 44.621 L 64.739 44.609 L 64.735 44.598 L 64.731 44.587 L 64.726 44.575 L 64.721 44.564 L 64.715 44.553 L 64.710 44.542 L 64.704 44.532 L 64.698 44.521 L 64.692 44.511 L 64.685 44.501 L 64.681 44.494 L 64.671 44.479 L 64.660 44.464 L 64.496 44.235 L 64.490 44.225 L 64.483 44.214 L 64.478 44.203 L 64.468 44.181 L 64.463 44.170 L 64.461 44.163 L 64.459 44.156 L 64.457 44.149 L 64.455 44.143 L 64.453 44.135 L 64.452 44.129 L 64.451 44.123 L 64.449 44.116 L 64.448 44.110 L 64.447 44.100 L 64.447 44.086 L 64.446 44.074 L 64.447 44.062 L 64.449 44.050 L 64.451 44.038 L 64.453 44.025 L 64.457 44.014 L 64.464 43.990 L 64.468 43.979 L 64.479 43.944 L 64.482 43.931 L 64.484 43.919 L 64.486 43.907 L 64.487 43.895 L 64.488 43.883 L 64.488 43.870 L 64.488 43.858 L 64.487 43.846 L 64.486 43.834 L 64.484 43.822 L 64.482 43.811 L 64.476 43.786 L 64.329 43.280 L 64.326 43.268 L 64.324 43.256 L 64.321 43.233 L 64.322 43.208 L 64.325 43.183 L 64.327 43.171 L 64.329 43.163 L 64.330 43.159 L 64.337 43.135 L 64.347 43.113 L 64.357 43.091 L 64.368 43.071 L 64.402 43.003 L 64.419 42.971 L 64.430 42.949 L 64.448 42.919 L 64.463 42.898 L 64.478 42.878 L 64.502 42.851 L 64.528 42.824 L 64.553 42.798 L 64.562 42.789 L 64.570 42.780 L 64.579 42.771 L 64.584 42.765 L 64.587 42.762 L 64.589 42.759 L 64.595 42.752 L 64.598 42.748 L 64.600 42.746 L 64.600 42.745 L 64.602 42.743 L 64.608 42.734 L 64.611 42.729 L 64.614 42.725 L 64.689 42.599 L 64.774 42.452 L 64.839 42.342 L 64.864 42.300 L 64.892 42.246 L 64.907 42.212 L 64.912 42.200 L 64.917 42.189 L 64.926 42.165 L 64.940 42.125 L 64.955 42.086 L 65.013 41.925 L 65.068 41.774 L 65.098 41.693 L 65.115 41.647 L 65.134 41.602 L 65.150 41.570 L 65.162 41.547 L 65.171 41.533 L 65.176 41.526 L 65.182 41.517 L 65.187 41.511 L 65.192 41.505 L 65.205 41.490 L 65.214 41.481 L 65.223 41.473 L 65.232 41.465 L 65.253 41.450 L 65.262 41.443 L 65.272 41.436 L 65.283 41.430 L 65.300 41.419 L 65.315 41.410 L 65.334 41.399 L 65.501 41.301 L 65.594 41.247 L 65.677 41.197 L 65.845 41.100 L 65.987 41.013 L 65.996 41.007 L 66.004 41.002 L 66.180 40.898 L 66.231 40.868 L 67.356 40.206 L 67.990 39.831 L 68.532 39.511 L 68.579 39.488 L 68.584 39.486 L 68.575 39.473 L 68.566 39.464 L 68.549 39.452 L 68.507 39.421 L 68.415 39.358 L 68.109 39.145 L 67.955 39.040 L 67.801 38.934 L 67.752 38.900 L 67.728 38.883 L 67.715 38.873 L 67.704 38.864 L 67.682 38.843 L 67.661 38.820 L 67.639 38.791 L 67.630 38.777 L 67.622 38.763 L 67.614 38.748 L 67.607 38.733 L 67.386 38.170 L 67.354 38.068 L 67.350 38.055 L 67.346 38.042 L 67.337 38.016 L 67.323 37.968 L 67.320 37.956 L 67.319 37.944 L 67.318 37.933 L 67.318 37.918 L 67.325 37.857 L 67.329 37.818 L 67.334 37.779 L 67.335 37.770 L 67.336 37.760 L 67.338 37.752 L 67.338 37.743 L 67.338 37.735 L 67.337 37.730 L 67.336 37.725 L 67.334 37.719 L 67.331 37.711 L 67.325 37.699 L 67.320 37.690 L 67.312 37.678 L 67.300 37.664 L 67.286 37.648 L 67.271 37.635 L 67.245 37.621 L 67.237 37.615 L 67.231 37.608 L 67.226 37.602 L 67.222 37.594 L 67.216 37.581 L 67.207 37.562 L 67.202 37.552 L 67.195 37.536 L 67.189 37.524 L 67.183 37.507 L 67.179 37.492" fill="none"/>
+      <!--/ROUTES-->
+      </svg>
+      <!--HOME--><span class="l-location__home" style="left:42.914%;top:52.232%"><i></i><span class="l-location__home-name"><b>Smyrlabjörg</b><span>Hótel · Suðursveit</span></span></span><!--/HOME-->
+      <div class="l-location__labels" aria-hidden="true">
+      <!--LABELS-->
+        <span style="left:19.2%;top:60.2%" class="l-location__landmark l-location__landmark--vatnajokull">Vatnajökull</span>
+      <!--/LABELS-->
+      </div>
+      <ul class="l-location__pins js-location-pins" id="pins" data-parallax-pattern="landingLocationMapPinDesktop" data-parallax-measure=".section">
+      <!--PINS-->
+        <li class="l-location__pin is-active" style="left:34.372%;top:59.389%" data-pin="0"><i></i><span class="text-small">Þórbergssetur</span></li>
+        <li class="l-location__pin" style="left:29.779%;top:66.031%" data-pin="1"><i></i><span class="text-small">Jökulsárlón</span></li>
+        <li class="l-location__pin" style="left:57.396%;top:49.311%" data-pin="2"><i></i><span class="text-small">Höfn</span></li>
+        <li class="l-location__pin" style="left:53.743%;top:37.492%" data-pin="3"><i></i><span class="text-small">Hoffell</span></li>
+      <!--/PINS-->
+      </ul>
+    </div>
+  </div>
+        <div class="l-location__dim" data-parallax-pattern="landingLocationMapTitleDesktop" data-parallax-measure=".section"></div>
+        <span class="l-location__home-edge" aria-hidden="true"><i></i><span class="l-location__home-name"><b>Smyrlabjörg</b><span>Hótel · Suðursveit</span></span></span>
+        <h2 class="l-location__title" data-reveal-group data-parallax-pattern="landingLocationMapTitleDesktop" data-parallax-measure=".section">
+          <span class="text-subtitle" data-reveal="subtitle">By road</span>
+          <span class="h0" data-reveal="title">FROM THE DOOR</span>
+        </h2>
+      </div>
+    </div>
+
+    <div class="l-location__card-layer">
+      <div class="sticky sticky--full-height l-location__card-sticky" style="--location-count:4" id="location-cards">
+        <div class="sticky__layer sticky__layer--sticky l-location__card-pin">
+          <article class="l-location-card card js-location-card">
+            <div class="l-location-card__top">
+              <div class="l-location-card__labels js-loc-labels">
+                <!--CARDLABELS-->
+                <p class="text-small is-active">Þórbergssetur<br><span>20.4 km · 21 min by car</span></p>
+                <p class="text-small">Jökulsárlón<br><span>33.8 km · 30 min by car</span></p>
+                <p class="text-small">Höfn<br><span>32.3 km · 29 min by car</span></p>
+                <p class="text-small">Hoffell<br><span>33.7 km · 32 min by car</span></p>
+              <!--/CARDLABELS-->
+              </div>
+              <span class="text-small l-location-card__count"><b id="loc-counter">1</b> / 4</span>
+            </div>
+            <div class="l-location-card__logo"><img class="l-stay__crest" src="assets/img/logo.png" alt="" width="58" height="37"></div>
+            <div class="l-location-card__texts js-loc-texts">
+              <p class="is-active">The Þórbergur Centre at Hali, a museum and café for the writer Þórbergur Þórðarson, in Suðursveit.</p>
+              <p>The glacier lagoon, where icebergs drift out towards the sea. The hotel is 34 km east of it.</p>
+              <p>The town of Höfn í Hornafirði.</p>
+              <p>Hoffell, the farm below the Hoffellsjökull glacier, in Hornafjörður.</p>
+            </div>
+            <div class="l-location-card__line"><i></i><i></i><i></i><span class="l-location-card__progress js-loc-progress" data-parallax-pattern="landingLocationMapProgress" data-parallax-measure=".sticky"></span></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- mobile cards -->
+  <ul class="l-location__mobile mobile-scrollable js-mobile-scrollable" data-lenis-prevent aria-hidden="false">
+    <!--MOBILECARDS-->
+    <li class="l-location__mcard"><p class="text-small">Þórbergssetur · 20.4 km</p><p>The Þórbergur Centre at Hali, a museum and café for the writer Þórbergur Þórðarson, in Suðursveit.</p></li>
+    <li class="l-location__mcard"><p class="text-small">Jökulsárlón · 33.8 km</p><p>The glacier lagoon, where icebergs drift out towards the sea. The hotel is 34 km east of it.</p></li>
+    <li class="l-location__mcard"><p class="text-small">Höfn · 32.3 km</p><p>The town of Höfn í Hornafirði.</p></li>
+    <li class="l-location__mcard"><p class="text-small">Hoffell · 33.7 km</p><p>Hoffell, the farm below the Hoffellsjökull glacier, in Hornafjörður.</p></li>
+  <!--/MOBILECARDS-->
+  </ul>
+  <p class="l-location__attribution text-small">Map data © OpenStreetMap contributors, tiles darkened for this page. Driving routes and times from the OSRM car profile over OpenStreetMap, measured on 31 October 2026.</p>
+</section>
+
+<!-- 5 STAY: the booking, at the bottom -->
+<section class="section ui-light l-stay" id="stay" data-themed="ui-light" data-reveal-root>
+  <div class="l-stay__bg appear" data-parallax-pattern="registerBgMove" data-parallax-measure=".section">
+    <img data-img="hero-summer" data-w="720 1080 1440 1920 2400 3000" sizes="(max-width: 767px) 200vw, 100vw" alt="" width="1440" height="NaN">
+  </div>
+  <div class="l-stay__wrap row">
+    <div class="col col--md-4 l-stay__intro" data-reveal-group>
+      <img class="l-stay__crest" src="assets/img/logo.png" alt="" width="86" height="55">
+      <p class="register__title"><span class="text-subtitle" data-reveal="subtitle">Stay at</span><span class="h2" data-reveal="title">SMYRLABJÖRG</span></p>
+      <p class="register__text" data-reveal="text">Check in is from 9:00, at any hour of the day, and an earlier arrival depends on availability. Check out is before noon. Free Wi-Fi and parking.</p>
+      <p class="l-stay__contact text-small" data-reveal="text"><a href="tel:+3544781074">+354 478 1074</a><br><a href="mailto:smyrlabjorg@smyrlabjorg.is">smyrlabjorg@smyrlabjorg.is</a><br>Smyrlabjörg, Suðursveit, 781 Höfn í Hornafirði</p>
+    </div>
+    <div class="col col--md-8 l-stay__panel-col">
+      <div class="stay inline-booking" id="inline-booking">
+        <p class="stay__title text-small" tabindex="-1">Check availability</p>
+        <fieldset class="stay__rooms">
+          <legend class="text-small">Room</legend>
+          <label class="stay__room"><input type="radio" name="room" value="lux" checked><span><b>Luxury double</b><i>about 30&nbsp;m², bed 2&nbsp;×&nbsp;2&nbsp;m, sea view</i></span></label>
+          <label class="stay__room"><input type="radio" name="room" value="twin"><span><b>Twin room</b><i>private bathroom, easy access</i></span></label>
+          <label class="stay__room"><input type="radio" name="room" value="triple"><span><b>Triple room</b><i>room to add a cot</i></span></label>
+          <label class="stay__room"><input type="radio" name="room" value="family"><span><b>Family room</b><i>four beds, an extra bed or cot on request</i></span></label>
+        </fieldset>
+        <form class="bk-bar" novalidate>
+          <div class="bk-body">
+            <div class="bk-dates">
+              <div class="bk-when"><p class="bk-l" id="bk-cal-l">Dates</p><p class="bk-range"><span data-from>Arrival</span> <span class="bk-to">to</span> <span data-to>Departure</span></p></div>
+              <div class="bk-gst"><div><p class="bk-l" id="bk-g-l">Guests</p><p class="bk-gnote" aria-live="polite"></p></div>
+                <div class="bk-step" role="group" aria-labelledby="bk-g-l"><button class="bk-minus" type="button" aria-label="One guest fewer">−</button><output class="bk-n">2</output><button class="bk-plus" type="button" aria-label="One guest more">＋</button></div></div>
+              <div class="bk-months" role="group" aria-labelledby="bk-cal-l" aria-live="polite"></div>
+            </div>
+            <div class="bk-who" hidden>
+<h3 class="bk-l" tabindex="-1">Your details</h3>
+<div class="bk-fields"><label>
+<span>Name</span>
+<input name="name" type="text" autocomplete="name" required>
+</label><label>
+<span>Email</span>
+<input name="email" type="email" autocomplete="email" required>
+</label><label>
+<span>Phone (optional)</span>
+<input name="phone" type="tel" autocomplete="tel" >
+</label><label class="bk-wide">
+<span>Anything we should know?</span>
+<textarea name="message" rows="3">
+</textarea>
+</label>
+</div>
+<button class="bk-back text-link" type="button">Change dates</button>
+</div>
+<div class="bk-done" hidden>
+<h3 tabindex="-1">Request not sent.</h3>
+<p class="bk-done-dates">
+</p>
+<p>
+<span class="bk-done-name">
+</span>
+</p>
+<p>This is a preview. No booking or message has been sent. Call the hotel to book.</p>
+<a href="mailto:smyrlabjorg@smyrlabjorg.is">smyrlabjorg@smyrlabjorg.is</a>
+</div>
+
+          </div>
+          <div class="bk-end">
+            <p class="bk-sum" aria-live="polite"></p>
+            <button class="button bk-action btn btn--primary" type="submit"><span>Choose your dates</span></button>
+            <p class="bk-note" aria-live="polite" id="booking-error"></p>
+          </div>
+        </form>
+        <div class="stay__result" id="stay-result" role="status" aria-live="polite" data-state="idle"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer class="section section--no-overflow ui-dark footer" id="footer" data-themed="ui-dark" data-reveal-root data-gravity-well='[{"viewport":100,"element":100}]'>
+  <div class="footer__top js-hide-header">
+    <nav class="footer__menu">
+      <a class="btn btn--underline text-small" href="#rooms"><span class="btn__underline">Rooms</span></a>
+      <a class="btn btn--underline text-small" href="tel:+3544781074"><span class="btn__underline">+354 478 1074</span></a>
+    </nav>
+  </div>
+  <div class="footer__headline js-mask-text">
+    <p class="h1 footer__text">SMYRLABJÖRG.<br>SUÐURSVEIT.<br>ON ROUTE 1.<br>THE FAMILY<br>SINCE 1990.</p>
+    <p class="h1 footer__text footer__text--mask" aria-hidden="true">SMYRLABJÖRG.<br>SUÐURSVEIT.<br>ON ROUTE 1.<br>THE FAMILY<br>SINCE 1990.</p>
+  </div>
+  <div class="footer__cols" data-reveal-group>
+    <nav class="footer__col" aria-label="Shortcuts">
+      <p class="footer__h text-small">Explore</p>
+      <ul>
+        <li><a href="#about">The farm</a></li>
+        <li><a href="#rooms">The rooms</a></li>
+        <li><a href="#restaurant">The restaurant</a></li>
+        <li><a href="#place">The road</a></li>
+        <li><a href="#stay">Check dates</a></li>
+        <li><a href="#top">Back to the top</a></li>
+      </ul>
+    </nav>
+    <div class="footer__col">
+      <p class="footer__h text-small">Visit</p>
+      <address>Smyrlabjörg, Suðursveit<br>781 Höfn í Hornafirði<br>Right on Route 1</address>
+      <ul>
+        <li>34&nbsp;km east of Jökulsárlón</li>
+        <li>32&nbsp;km from Höfn by road</li>
+        <li>Free parking</li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <p class="footer__h text-small">Hours</p>
+      <ul>
+        <li>Check in from 9:00, at any hour</li>
+        <li>Check out before noon</li>
+        <li>Restaurant 11:30 to 20:30 most days</li>
+        <li>Breakfast buffet</li>
+      </ul>
+    </div>
+    <div class="footer__col footer__col--book">
+      <p class="footer__h text-small">Book or ask</p>
+      <ul>
+        <li><a href="tel:+3544781074">+354 478 1074</a></li>
+        <li><a href="mailto:smyrlabjorg@smyrlabjorg.is">smyrlabjorg@smyrlabjorg.is</a></li>
+      </ul>
+      <a class="btn btn--primary footer__book" href="#stay"><span>Check dates</span></a>
+    </div>
+  </div>
+  <div class="footer__bottom row">
+    <div class="col col--md-2 col--md-offset-1">
+      <a class="btn btn--gradient btn--arrow-up" href="#top" aria-label="Back to top"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="g-ring-2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#611610"/><stop offset="1" stop-color="#B8503F"/></linearGradient></defs><circle class="btn__ring" cx="20" cy="20" r="19.35" fill="none" stroke="url(#g-ring-2)" stroke-width="1.3"/></svg><i class="btn__arrow"></i></a>
+    </div>
+    <p class="col col--md-5 text-small footer__copy">Hótel Smyrlabjörg ehf. Smyrlabjörg, Suðursveit, 781 Höfn í Hornafirði. +354 478 1074. A prototype page, not the hotel’s live site.</p>
+    <p class="col col--md-3 footer__credit"><a class="sndr" href="https://sndrstudio.is" target="_blank" rel="noopener" aria-label="Hannað af SNDR Studio" data-logotype><span class="sndr__mark">SN<i>✦</i>DR</span><span class="sndr__studio">STUDIO</span></a></p>
+  </div>
+</footer>
+
+</main>
+
+<!-- phone dock: one constant bar -->
+<nav class="dock" aria-label="Contact and booking">
+  <a class="dock__call" href="tel:+3544781074"><span>Call</span></a>
+  <a class="dock__book" href="#stay" data-book><span>Check dates</span></a>
+</nav>
+
+<script src="assets/vendor/sndr-booking.js"></script>
+<script type="module" src="app.js"></script>
+<script type="module" src="smyrlabjorg.js"></script>
+</body>
+</html>
