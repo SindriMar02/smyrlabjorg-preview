@@ -1769,3 +1769,40 @@ html.js .intro__crest{animation:smy-rise 1.6s var(--ease-title) 1.2s both}
 .l-luxury__pair.row > figure.col,.l-luxury__pair.row > figure.l-luxury__pair-small{aspect-ratio:auto!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;justify-self:stretch}
 /* map intro: the title sits above the hotel marker and its name, never on them */
 @media (min-width:768px){.l-location__title{transform:translateY(-10svh)}}
+
+/* stay band: the parallax travels 14svh, so the photo is taller than its frame by the same amount and never exposes the section colour; the card overlaps it on purpose */
+.l-stay__bg img{height:calc(100% + 14svh);max-width:none;object-position:50% 58%}
+@media (min-width:768px){
+  .l-stay__bg{height:62svh;min-height:400px}
+  .l-stay__wrap{margin-top:-7svh}
+  .l-stay__intro{padding-top:calc(7svh + var(--spacing)*2)}
+  .l-location__attribution{padding-bottom:calc(var(--spacing)*1.5)}
+}
+/* booking calendar on desktop: every month in one vertical list that scrolls inside the card */
+@media (min-width:768px){
+  .inline-booking .bk-months--v{grid-template-columns:minmax(0,1fr);gap:0;max-height:min(56svh,470px);overflow-y:auto;overscroll-behavior:contain;margin-top:2.4rem;padding:0 1.6rem 1rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line);scrollbar-width:thin;scrollbar-color:rgba(17,29,40,.3) transparent}
+  .inline-booking .bk-months--v .bk-m{padding-bottom:2.4rem}
+  .inline-booking .bk-months--v .bk-m-h{position:sticky;top:0;z-index:2;background:var(--c-white);min-height:56px}
+  .inline-booking .bk-months--v .bk-dow{position:sticky;top:56px;z-index:2;background:var(--c-white);padding-bottom:8px}
+}
+/* footer on a phone: book first, links in two columns, the dock already carries phone and Check dates */
+@media (max-width:767px){
+  .footer__top{display:none}
+  .footer__headline{padding:3.2rem var(--spacing) 2.4rem}
+  .footer__headline .footer__text:not(.footer__text--mask){font-size:clamp(3rem,10.5vw,4.2rem);line-height:1.08}
+  .footer__cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:3rem 2rem;padding:2.6rem var(--spacing) 2.2rem}
+  .footer__col--book{order:-1;grid-column:1/-1}
+  .footer__col--book ul{gap:.7rem}
+  .footer__col[aria-label="Shortcuts"]{grid-column:1/-1}
+  .footer__col[aria-label="Shortcuts"] ul{grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem 2rem}
+  .footer__col[aria-label="Shortcuts"] li:nth-child(n+5){display:none}
+  .footer__h{margin-bottom:1.2rem}
+  .footer__col li,.footer__col address{font-size:1.35rem;line-height:1.45}
+  .footer__col address{margin-bottom:1rem}
+  .footer__book{display:none}
+  .footer__bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:1.8rem 1.6rem;padding:2rem var(--spacing) 2.4rem;border-top:1px solid var(--t-line)}
+  .footer__bottom>.col{width:auto;max-width:none;flex:none;margin:0;padding:0}
+  .footer__bottom>.col:first-child{grid-column:2;grid-row:1}
+  .footer__bottom .footer__credit{grid-column:1;grid-row:1;text-align:left}
+  .footer__bottom .footer__copy{grid-column:1/-1;grid-row:2}
+}

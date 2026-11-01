@@ -14,7 +14,8 @@
   if (root && window.mountBooking) {
     const form = $('form', root);
     let room = 'lux', dates = [], cap = CAP.lux;
-    const engine = window.mountBooking(root, { min: 1, max: CAP.lux, guests: 2, months: 18, lang: 'en', taken: () => false });
+    const engine = window.mountBooking(root, { min: 1, max: CAP.lux, guests: 2, months: 18, lang: 'en', vertical: true, taken: () => false });
+    $('.bk-months', root).setAttribute('data-lenis-prevent', '');   // the month list scrolls on its own, Lenis must leave the wheel to it
     engine.prepare();
     const say = (state, html) => { result.dataset.state = state; result.innerHTML = html; };
     const reset = () => { if (result.dataset.state !== 'idle') say('idle', ''); };
