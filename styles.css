@@ -1778,13 +1778,6 @@ html.js .intro__crest{animation:smy-rise 1.6s var(--ease-title) 1.2s both}
   .l-stay__intro{padding-top:calc(7svh + var(--spacing)*2)}
   .l-location__attribution{padding-bottom:calc(var(--spacing)*1.5)}
 }
-/* booking calendar on desktop: every month in one vertical list that scrolls inside the card */
-@media (min-width:768px){
-  .inline-booking .bk-months--v{grid-template-columns:minmax(0,1fr);gap:0;max-height:min(56svh,470px);overflow-y:auto;overscroll-behavior:contain;margin-top:2.4rem;padding:0 1.6rem 1rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line);scrollbar-width:thin;scrollbar-color:rgba(17,29,40,.3) transparent}
-  .inline-booking .bk-months--v .bk-m{padding-bottom:2.4rem}
-  .inline-booking .bk-months--v .bk-m-h{position:sticky;top:0;z-index:2;background:var(--c-white);min-height:56px}
-  .inline-booking .bk-months--v .bk-dow{position:sticky;top:56px;z-index:2;background:var(--c-white);padding-bottom:8px}
-}
 /* footer on a phone: book first, links in two columns, the dock already carries phone and Check dates */
 @media (max-width:767px){
   .footer__top{display:none}
@@ -1806,3 +1799,23 @@ html.js .intro__crest{animation:smy-rise 1.6s var(--ease-title) 1.2s both}
   .footer__bottom .footer__credit{grid-column:1;grid-row:1;text-align:left}
   .footer__bottom .footer__copy{grid-column:1/-1;grid-row:2}
 }
+
+/* booking card on desktop: one row of room names, one line of detail, then the two-month calendar, all inside one screen */
+@media (min-width:768px){
+  .stay{padding:clamp(2rem,2.4vw,3.2rem)}
+  .stay__title{margin-bottom:1.2rem}
+  .stay__rooms{grid-template-columns:repeat(4,minmax(0,1fr));gap:.6rem;margin-top:0}
+  .stay__rooms legend{margin-bottom:.8rem}
+  .stay__room span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:4.4rem;padding:.8rem .6rem}
+  .stay__room b{font-size:1.5rem;letter-spacing:.03em}
+  .stay__room i{display:none}
+  .stay__detail{margin:1rem 0 0;color:var(--t-primary)}
+  .inline-booking .bk-dates{margin-top:1.8rem}
+  .inline-booking .bk-months{margin-top:1.2rem}
+  .inline-booking .bk-d{min-height:37px}
+  .inline-booking .bk-m-h{min-height:40px}
+  .inline-booking .bk-nav button{width:38px;height:38px}
+  .inline-booking .bk-end{border-bottom:0}
+  .inline-booking .bk-end{margin-top:1.6rem;padding-top:1.6rem}
+}
+@media (max-width:767px){.stay__detail{margin:.8rem 0 0;color:var(--t-primary)}}

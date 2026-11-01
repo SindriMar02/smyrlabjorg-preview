@@ -14,15 +14,19 @@
   if (root && window.mountBooking) {
     const form = $('form', root);
     let room = 'lux', dates = [], cap = CAP.lux;
-    const engine = window.mountBooking(root, { min: 1, max: CAP.lux, guests: 2, months: 18, lang: 'en', vertical: true, taken: () => false });
-    $('.bk-months', root).setAttribute('data-lenis-prevent', '');   // the month list scrolls on its own, Lenis must leave the wheel to it
+    const engine = window.mountBooking(root, { min: 1, max: CAP.lux, guests: 2, months: 18, lang: 'en', taken: () => false });
     engine.prepare();
     const say = (state, html) => { result.dataset.state = state; result.innerHTML = html; };
     const reset = () => { if (result.dataset.state !== 'idle') say('idle', ''); };
     const radio = r => $(`input[name=room][value="${r}"]`, root);
+    // the room tiles carry only the name; the one line of detail for the chosen room sits under them
+    const detail = $('#stay-detail', root);
+    const showDetail = () => { const el = radio(room), i = el && el.nextElementSibling && el.nextElementSibling.querySelector('i'); if (detail && i) detail.textContent = i.textContent; };
+    showDetail();
     const setRoom = r => {
       if (!NAME[r]) return;
       room = r; const el = radio(r); if (el) el.checked = true;
+      showDetail();
       if (CAP[r] !== cap) { cap = CAP[r]; dates = []; engine.setHouse(cap, () => false); }
       reset();
     };

@@ -9,7 +9,7 @@
 // that this is the preview. The production layer swaps `submitRequest` for the real engine and `openNights` for the
 // synced calendar.
   // Þurranes: localized user-visible text only.
-function mountBooking(root, { min = 2, max = 10, guests = 2, months = 18, lang = 'en', onStep = () => {}, taken = () => false, vertical = false } = {}) {
+function mountBooking(root, { min = 2, max = 10, guests = 2, months = 18, lang = 'en', onStep = () => {}, taken = () => false } = {}) {
   // Þurranes: language-only text adapter; Hólmur's Icelandic month/day tables.
   // Þurranes: localized user-visible text only.
   const t = (en, is) => lang === 'is' ? is : en;
@@ -101,10 +101,7 @@ function mountBooking(root, { min = 2, max = 10, guests = 2, months = 18, lang =
     }
   }
   function render() {
-    const vert = vertical && wide.matches;   // Smyrlabjörg: desktop lists every month top to bottom, one column, no pager
-    const n = vert ? (lastMonth.getFullYear() - firstMonth.getFullYear()) * 12 + lastMonth.getMonth() - firstMonth.getMonth() + 1 : wide.matches ? 2 : 1;
-    if (vert) st.view = firstMonth;
-    monthsBox.classList.toggle('bk-months--v', vert);
+    const n = wide.matches ? 2 : 1;
     const prevOk = st.view > firstMonth, nextOk = new Date(st.view.getFullYear(), st.view.getMonth() + n - 1, 1) < lastMonth;
   // Þurranes: localized user-visible text only.
     const arrows = `<span class="bk-nav"><button class="bk-prev" type="button" aria-label="${t('Previous month', 'Fyrri mánuður')}"${prevOk ? '' : ' disabled'}><svg class="bk-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button class="bk-next" type="button" aria-label="${t('Next month', 'Næsti mánuður')}"${nextOk ? '' : ' disabled'}><svg class="bk-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></span>`;
@@ -112,7 +109,7 @@ function mountBooking(root, { min = 2, max = 10, guests = 2, months = 18, lang =
     for (let i = 0; i < n; i++) {
       const m = new Date(st.view.getFullYear(), st.view.getMonth() + i, 1), lead = (m.getDay() + 6) % 7, count = new Date(m.getFullYear(), m.getMonth() + 1, 0).getDate();
   // Þurranes: localized user-visible text only.
-      html += `<div class="bk-m" role="group" aria-label="${fMonth.format(m)}"><div class="bk-m-h"><p class="bk-m-t">${fMonth.format(m)}</p>${i === n - 1 && !vert ? arrows : ''}</div><div class="bk-dow" aria-hidden="true">${(lang === 'is' ? ['Má', 'Þr', 'Mi', 'Fi', 'Fö', 'La', 'Su'] : ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']).map((d) => `<span>${d}</span>`).join('')}</div><div class="bk-days">${'<span></span>'.repeat(lead)}`;
+      html += `<div class="bk-m" role="group" aria-label="${fMonth.format(m)}"><div class="bk-m-h"><p class="bk-m-t">${fMonth.format(m)}</p>${i === n - 1 ? arrows : ''}</div><div class="bk-dow" aria-hidden="true">${(lang === 'is' ? ['Má', 'Þr', 'Mi', 'Fi', 'Fö', 'La', 'Su'] : ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']).map((d) => `<span>${d}</span>`).join('')}</div><div class="bk-days">${'<span></span>'.repeat(lead)}`;
   // Þurranes: localized user-visible text only.
       for (let d = 1; d <= count; d++) { const dt = new Date(m.getFullYear(), m.getMonth(), d), k = iso(dt); html += `<button type="button" class="bk-d${k >= firstDay && k <= lastDay && takenFn(k) ? ' bk-taken' : ''}" data-d="${k}" aria-label="${fLong.format(dt)}${k >= firstDay && k <= lastDay && takenFn(k) ? t(', booked', ', frátekið') : ''}" aria-pressed="false" tabindex="-1"${openNight(k) ? '' : ' disabled'}>${d}</button>`; }
       html += '</div></div>';
@@ -122,7 +119,6 @@ function mountBooking(root, { min = 2, max = 10, guests = 2, months = 18, lang =
   }
   let slide = [];
   function page(step) {
-    if (vertical && wide.matches) return;   // the vertical list has no pages
     const v = new Date(st.view.getFullYear(), st.view.getMonth() + step, 1);
     if (v < firstMonth || v > lastMonth) return;
     st.view = v; render();
@@ -147,7 +143,7 @@ function mountBooking(root, { min = 2, max = 10, guests = 2, months = 18, lang =
   }
   function goto(k) {
     const d = at(k), shown = wide.matches ? 2 : 1, first = st.view, last = new Date(first.getFullYear(), first.getMonth() + shown, 0);
-    if (!(vertical && wide.matches) && (d < first || d > last)) {
+    if (d < first || d > last) {
       let v = d > last ? new Date(d.getFullYear(), d.getMonth() - (shown - 1), 1) : monthOf(d);
       st.view = v < firstMonth ? firstMonth : v > lastMonth ? lastMonth : v; render();
     }
